@@ -1,0 +1,25 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.matugen": false,
+  "wallpaper.image": "/home/Brian/Downloads/gojo-and-kitty-jujutsu-kaisen-moewalls-com.mp4",
+  "theme.bar.enableShadow": true,
+  "theme.bar.border.location": "full",
+  "theme.bar.border.width": "0.5",
+  "theme.bar.floating": true,
+  "theme.bar.buttons.padding_y": "1",
+  "theme.bar.margin_sides": "10",
+  "theme.bar.margin_top": "10",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.opacity": 65,
+  "theme.bar.menus.opacity": 95,
+  "theme.matugen_settings.mode": "dark",
+  "theme.matugen_settings.scheme_type": "fidelity",
+  "theme.matugen_settings.variation": "standard_1",
+  "menus.clock.time.military": true,
+  "menus.clock.weather.location": "78717",
+  "theme.font.size": "0.8rem",
+  "wallpaper.enable": true,
+  "wallpaper.pywal": true
+}
