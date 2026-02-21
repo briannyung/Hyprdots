@@ -79,7 +79,9 @@ int main(int argc, char* argv[]) {
             }
             else if(op == "default") {
                 string copy = "cp " + s + ".conf d.conf";
+                string copy_img = "cp ~/.config/wallpapers/" + s + " ~/.config/wallpapers/d";
                 system(copy.c_str());
+                system(copy_img.c_str());
             }
             else {
                 cout << "Invalid operator " << op << endl;
