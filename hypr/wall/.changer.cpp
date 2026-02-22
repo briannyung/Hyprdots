@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 #include <cstdlib>
 using namespace std;
-
+void exec(string cmd) {
+    system(cmd.c_str());
+}
 int main(int argc, char* argv[]) {
     if(argc == 1) {
         cout << "Not enough arguments. Syntax is walman [add] [use] [default] file" << endl;
@@ -10,8 +12,7 @@ int main(int argc, char* argv[]) {
     else if(argc == 2) {
         string s = argv[1];
         if(s == "-l" || s == "-list") {
-            string cd = "cd ~/.config/hypr/wall && ls";
-            system(cd.c_str());
+            exec("cd ~/.config/hypr/wall && ls");
         }
         else {
             cout << "Unknown field: " + s << endl;
@@ -32,8 +33,7 @@ int main(int argc, char* argv[]) {
          ./changer add wallpaper.png
          ./changer use wallpaper.png
         */ 
-        string cd = "cd ~/.config/hypr/wall";
-        system(cd.c_str());
+        exec("cd ~/.config/hypr/wall");
         for(int i = 1; i < argc - 1; ++ i) {
             string op = argv[i];
             if(op == "add") {
@@ -43,25 +43,29 @@ int main(int argc, char* argv[]) {
                     cout << "Invalid format. " << endl;
                     return 1;
                 }
-                string extension = s.substr(idx + 1);
+                exec("file -b ~/.config/wallpapers/" + s + " > .file_type.temp");
+                ifstream readType(".file_type.temp");
+                if(!readType) {
+                    cout << "Unknown error." << endl;
+                    return 1;
+                }
+                string extension;
+                readType >> extension;
+                //cout << "Recognized extension: " << extension << endl;
+                exec("rm .file_type.temp");
                 //swww supported formats: PNG, JPG, JPEG, WEBP, BMP, TGA, PNM
-                if(extension == "png" || extension == "jpg" || extension == "jpeg" || extension == "webp" || extension == "tga" || extension == "pnm") {
-                    string copy = "cp .swww_dummy.conf " + s + ".conf";
-                    string replace = "sed -i 's/YOURIMAGE/" + s + "/' " + s + ".conf";
-                    //cout << copy << endl << replace << endl;
-                    system(copy.c_str());
-                    system(replace.c_str()); 
+                if(extension == "PNG" || extension == "JPG" || extension == "JPEG" || extension == "WEBP" || extension == "TGA" || extension == "PNM") {
+                    exec("cp .swww_dummy.conf " + s + ".conf");
+                    exec("sed -i 's/YOURIMAGE/" + s + "/' " + s + ".conf");
                 }
                 else {
-                    cout << "Invalid file type." << endl;
-                    return 1;
+                    exec("cp .mpvpaper_dummy.conf " + s + ".conf");
+                    exec("sed -i 's/YOURIMAGE/" + s + "/' " + s + ".conf");
                 }
             }
             else if(op == "use") {
-                string use = "cp " + s + ".conf w.conf";
-                string pipe = "head -n 1 w.conf > .engine_type.temp";
-                system(use.c_str());
-                system(pipe.c_str());
+                exec("cp " + s + ".conf w.conf");
+                exec("head -n 1 w.conf > .engine_type.temp");
                 ifstream fin(".engine_type.temp");
                 if(!fin) {
                     cout << "Error reading from temp file." << endl;
@@ -71,17 +75,19 @@ int main(int argc, char* argv[]) {
                 fin >> type;
                 cout << type << endl;
                 if(type == "#swww") {
-                    string pywal = "wal -i ~/.config/wallpapers/" + s + " >/dev/null 2>&1";
-                    system(pywal.c_str());
+                    exec("wal -i ~/.config/wallpapers/" + s + " >/dev/null 2>&1");
                 }
-                string cleanup = "rm .engine_type.temp >/dev/null 2>&1";
-                system(cleanup.c_str());
+                else if(type == "#mpvpaper") {
+                    string snapshot = "~/.config/wallpapers/.walman_temp_" + s;
+                    exec("ffmpeg -ss 00:00:00 -i ~/.config/wallpapers/" + s + " -frames:v 1 " + snapshot);
+                    exec("wal -i " + snapshot + " >/dev/null 2>&1");
+                    exec("rm " + snapshot);
+                }
+                exec("rm .engine_type.temp >/dev/null 2>&1");
             }
             else if(op == "default") {
-                string copy = "cp " + s + ".conf d.conf";
-                string copy_img = "cp ~/.config/wallpapers/" + s + " ~/.config/wallpapers/d";
-                system(copy.c_str());
-                system(copy_img.c_str());
+                exec("cp " + s + ".conf d.conf");
+                exec("cp ~/.config/wallpapers/" + s + " ~/.config/wallpapers/d");
             }
             else {
                 cout << "Invalid operator " << op << endl;
