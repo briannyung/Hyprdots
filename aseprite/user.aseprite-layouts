@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layouts>
     <layout id="_default_" name="_default_">
-        <colorbar side="left" width="76"/>
+        <colorbar side="left" width="53"/>
         <statusbar side="bottom"/>
         <dock>
             <contextbar side="top"/>
             <toolbar side="right"/>
             <dock>
-                <timeline side="bottom" width="75" height="103"/>
+                <timeline side="bottom" width="75" height="210"/>
                 <workspace/>
             </dock>
         </dock>

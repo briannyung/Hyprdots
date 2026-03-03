@@ -84,6 +84,9 @@ int main(int argc, char* argv[]) {
                     exec("rm " + snapshot);
                 }
                 exec("rm .engine_type.temp >/dev/null 2>&1");
+                exec("cp ~/.cache/wal/cava.config.template ~/.config/cava/config");
+                exec("pkill -USR1 cava");
+
             }
             else if(op == "default") {
                 exec("cp " + s + ".conf d.conf");
