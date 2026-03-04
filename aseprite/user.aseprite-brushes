@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<brushes/>
+<brushes>
+    <brush type="image" size="1" angle="0" imagecolor="true">
+        <image width="4" height="10" format="rgba">AAAAADUxZv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTFm/wAAAAAAAAAAAAAAADUxZv8AAAAAAAAAAEYucP9GLnD/XDWC/wAAAABGLnD/NTFm/0YucP8AAAAARi5w/zUxZv9uOoz/bjqM/0YucP9GLnD/XDWC/wAAAABGLnD/Ri5w/246jP8AAAAAAAAAAFw1gv9cNYL/AAAAA===</image>
+        <mask width="4" height="10" format="bitmap">AAEAAAAAAAAAAQAAAAEAAAEBAQABAQEAAQEBAQEBAQABAQEAAAEBA===</mask>
+    </brush>
+    <brush type="image" imagecolor="true">
+        <image width="5" height="8" format="rgba">AAAAAAAAAABAcC7/AAAAAAAAAAAAAAAAQHAu/246jP9uOoz/AAAAAEBwLv9AcC7/bjqM/246jP8YLjv/QHAu/246jP81MWb/bjqM/xguO/9AcC7/bjqM/zUxZv8YLjv/GC47/wAAAABuOoz/NTFm/xguO/8AAAAAAAAAAAAAAAA1MWb/AAAAAAAAAAAAAAAAAAAAADUxZv8AAAAAAAAAA===</image>
+        <mask width="5" height="8" format="bitmap">AAABAAAAAQEBAAEBAQEBAQEBAQEBAQEBAQABAQEAAAABAAAAAAEAA===</mask>
+    </brush>
+</brushes>
