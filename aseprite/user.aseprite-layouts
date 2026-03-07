@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layouts>
     <layout id="_default_" name="_default_">
-        <colorbar side="left" width="53"/>
+        <colorbar side="left" width="54"/>
         <statusbar side="bottom"/>
         <dock>
             <contextbar side="top"/>
