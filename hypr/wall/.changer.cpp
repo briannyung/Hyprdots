@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     }
     else if(argc > 2) {
         string s = argv[argc-1];
-        int idx = -1;
+        int idx = -2;
         for(int i = s.size() - 1; i >= 0; -- i) {
             if(s[i] == '.') {
                 idx = i;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
                 exec("rm .file_type.temp");
                 //swww supported formats: PNG, JPG, JPEG, WEBP, BMP, TGA, PNM
                 if(extension == "PNG" || extension == "JPG" || extension == "JPEG" || extension == "WEBP" || extension == "TGA" || extension == "PNM") {
-                    exec("cp .swww_dummy.conf " + s + ".conf");
+                    exec("cp .awww_dummy.conf " + s + ".conf");
                     exec("sed -i 's/YOURIMAGE/" + s + "/' " + s + ".conf");
                 }
                 else {
@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
                 string type;
                 fin >> type;
                 cout << type << endl;
-                if(type == "#swww") {
+                if(type == "#awww") {
                     exec("wal -i ~/.config/wallpapers/" + s + " >/dev/null 2>&1");
                 }
                 else if(type == "#mpvpaper") {
