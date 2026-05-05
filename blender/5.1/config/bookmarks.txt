@@ -1,0 +1,5 @@
+[Bookmarks]
+[Recent]
+!Home
+/home/Brian/
+/home/Brian/Downloads/
